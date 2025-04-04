@@ -110,7 +110,7 @@ resource "aws_eip" "one" {
   depends_on = [ aws_internet_gateway.gw , aws_instance.web-server-instance ]
 }
 
-# 9. Create Linux server and Install/Enable apache2
+# 9. Create Linux server and Install/Enable httpd
 resource "aws_instance" "web-server-instance" {
     ami = "ami-00a929b66ed6e0de6"
     instance_type = "t2.micro"
