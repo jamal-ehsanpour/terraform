@@ -81,7 +81,7 @@ resource "aws_vpc_security_group_ingress_rule" "allow-https" {
 resource "aws_vpc_security_group_ingress_rule" "allow-ssh" {
   security_group_id = aws_security_group.allow-web.id
 
-  cidr_ipv4   = "0.0.0.0/0"
+  cidr_ipv4   = "${data.http.user-ip.response_body}/32"
   from_port   = 22
   ip_protocol = "tcp"
   to_port     = 22
@@ -127,4 +127,9 @@ resource "aws_instance" "web-server-instance" {
   tags = {
     Name = "web-server"
   }
+}
+
+data "http" "user-ip" {
+    url = "https://api.ipify.org"
+  
 }
