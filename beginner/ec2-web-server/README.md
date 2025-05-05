@@ -28,7 +28,7 @@ This Terraform configuration creates:
    ```
 ### Step 2: Initialize Terraform
  ```bash
-terraform plan
+terraform init
  ```
 
 ### Step 3: Review Execution Plan
