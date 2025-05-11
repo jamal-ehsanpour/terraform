@@ -40,7 +40,9 @@ This Terraform module manages AWS Identity and Access Management (IAM) resources
 Input Variables
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|----------|
-| `users` | Map of IAM users with their configuration.<br>Example:<br>```{ "user1" = { groups = ["developers"], policy_arns = [...] } }``` | `map(object)` | `{}` | Yes |
-| `groups` | Map of IAM groups with their policies.<br>Example:<br>```{ "developers" = { policy_arns = [...] } }``` | `map(object)` | `{}` | No |
+| `names` | List of IAM users with their configuration. | `list` | `[]` | Yes |
+| `groups` | Name of the group | `string` | `` | No |
 | `password_length` | Length of auto-generated console passwords (8-128 chars) | `number` | `16` | No |
-| `require_mfa` | Whether to enforce MFA for console access | `bool` | `true` | No |
+| `password_reset_required` | Whether the user should be forced to reset the generated password on first login. | `bool` | `true` | No |
+| `tags` |A map of tags to be added to resources. | `map(string)` | `{}` | No |
+| `pgp_user` | Either a base-64 encoded PGP public key, or a keybase username in the form `keybase:username`. Used to encrypt password and access key. | `string` | `` | Yes |
