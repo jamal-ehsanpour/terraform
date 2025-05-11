@@ -2,32 +2,26 @@
 
 ![Terraform Logo](https://img.shields.io/badge/Terraform-7B42BC?style=for-the-badge&logo=terraform&logoColor=white)
 
-A collection of Terraform projects showcasing infrastructure-as-code (IaC) skills and preparation for the **HashiCorp Certified: Terraform Associate** exam.
+A collection of Terraform projects showcasing infrastructure-as-code (IaC) skills for core AWS  services, organized by service type.
 
 ## 📌 Overview
-
-This repository contains hands-on Terraform configurations for:
-- **Basic deployments** (EC2, S3, VPCs)
-- **Intermediate architectures** (Load balancers, Auto Scaling Groups)
-- **Advanced scenarios** (Multi-cloud, CI/CD pipelines)
 
 All projects are designed with **best practices** and align with HashiCorp's certification exam objectives.
 
 ## 🏗️ Project Structure
 
 ```bash
-├───beginner/
-│   ├───ec2-web-server/      # VPC + EC2 instance with Apache
-│   ├───s3-static-website/   # Host static files on AWS S3
-│   └───docker-nginx/        # Container deployment with Terraform
-├───intermediate/
-│   ├───asg-alb/             # Auto Scaling Group + Application LB
-│   └───remote-state/        # S3 backend configuration
-├───advanced/
-│   ├───multi-cloud/         # AWS + Azure deployment
-│   └───ci-cd-pipeline/      # GitHub Actions for Terraform
-├───README.md                # This file
-└───LICENSE                  # MIT License
+terraform/
+├── my-projects/
+│ ├── iam/ # Identity & Access Management
+│ ├── ec2/ # Elastic Compute Cloud
+│ ├── elb/ # Elastic Load Balancing
+│ ├── asg/ # Auto Scaling Groups
+│ ├── sg/ # Security Groups
+│ ├── s3/ # Simple Storage Service
+├── modules/ # Reusable Terraform modules
+├── examples/ # Usage examples
+└── README.md # This file
 ```
 
 
@@ -35,7 +29,7 @@ All projects are designed with **best practices** and align with HashiCorp's cer
 
 ### Prerequisites
 - [Terraform](https://developer.hashicorp.com/terraform/downloads) installed
-- AWS/Azure/GCP account (free tier recommended)
+- AWS account 
 - [AWS CLI](https://aws.amazon.com/cli/) configured (for AWS projects)
   
 
@@ -46,13 +40,23 @@ git clone https://github.com/jamal-ehsanpour/terraform.git
 ```
 2. Navigate to any project:
 ```bash
-   cd beginner/ec2-web-server
+   cd terraform/my-projects/<service>
 ```
 3. Initialize and apply:
 ```bash
 terraform init
 terraform apply
 ```
+
+## Service-Specific Documentation
+
+| Service | Description                          | Documentation | Status |
+|---------|--------------------------------------|---------------|--------|
+| ![IAM](https://img.shields.io/badge/-IAM-orange) | Identity and Access Management | [📚 Docs](./my-projects/iam/README.md) | ![Ready](https://img.shields.io/badge/status-ready-green) |
+| ![EC2](https://img.shields.io/badge/-EC2-yellow) | Virtual Servers | [📚 Docs](./my-projects/ec2/README.md) | ![Ready](https://img.shields.io/badge/status-ready-green) |
+| ![ELB](https://img.shields.io/badge/-ELB-blue) | Load Balancers | [📚 Docs](./my-projects/elb/README.md) | ![WIP](https://img.shields.io/badge/status-wip-yellow) |
+| ![ASG](https://img.shields.io/badge/-ASG-red) | Auto Scaling | [📚 Docs](./my-projects/asg/README.md) | ![Planned](https://img.shields.io/badge/status-planned-lightgrey) |
+| ![S3](https://img.shields.io/badge/-S3-black) | Object Storage | [📚 Docs](./my-projects/s3/README.md) | ![Ready](https://img.shields.io/badge/status-ready-green) |
 
 ## 📚 Learning Resources
 - 🔍 [Official Terraform Documentation](https://developer.hashicorp.com/terraform/docs) - Core concepts and CLI reference
