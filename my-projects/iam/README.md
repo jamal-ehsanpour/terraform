@@ -46,3 +46,23 @@ Input Variables
 | `password_reset_required` | Whether the user should be forced to reset the generated password on first login. | `bool` | `true` | No |
 | `tags` |A map of tags to be added to resources. | `map(string)` | `{}` | No |
 | `pgp_user` | Either a base-64 encoded PGP public key, or a keybase username in the form `keybase:username`. Used to encrypt password and access key. | `string` | `` | Yes |
+
+
+## Outputs 📤
+
+
+| Output Name | Description | Type | Sensitive | Example |
+|------------|-------------|------|-----------|---------|
+| `user_arns` | IAM User ARNs | `map(string)` | No | ![ARN](https://img.shields.io/badge/Format-ARN-blue) |
+| `group_arns` | IAM Group ARNs | `map(string)` | No | ![ARN](https://img.shields.io/badge/Format-ARN-blue) |
+| `secret_arns` | Secrets Manager locations | `map(string)` | Yes 🔐 | ![Secret](https://img.shields.io/badge/Storage-Secure-green) |
+| `encrypted_passwords` | PGP-encrypted secrets | `map(string)` | Yes 🔐 | ![PGP](https://img.shields.io/badge/Encrypted-PGP-red) |
+
+
+### Usage Examples
+
+**1. Get all user ARNs:**
+```hcl
+output "all_user_arns" {
+  value = module.iam.user_arns
+}
