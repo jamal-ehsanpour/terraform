@@ -1,16 +1,18 @@
-# 🌐 Terraform Web Server with ALB, ASG & HTTPS Redirect
+# 🚀 Terraform Project: Web Server with ALB, ASG & HTTPS Redirect 🌐🔐
+![Terraform Version](https://img.shields.io/badge/terraform-%3E%3D1.3.0-blue)
+![AWS Provider](https://img.shields.io/badge/AWS%20Provider-%3E%3D5.0-orange)
 
-This project uses **Terraform** to deploy a **highly available web server** infrastructure on **AWS**, featuring:
+This project uses **Terraform** to provision a **secure and scalable web server infrastructure on AWS**, including:
 
-- **Application Load Balancer (ALB)** with HTTPS support
-- **Auto Scaling Group (ASG)** for elasticity
-- **Launch Template for EC2**
-- **HTTP → HTTPS redirect** for secure connections
-- All infrastructure defined using **Infrastructure as Code (IaC)** best practices
+✨ Application Load Balancer (ALB)  
+📈 Auto Scaling Group (ASG)  
+💻 EC2 Instances with Launch Template  
+🔒 HTTPS with automatic HTTP → HTTPS redirect  
+🧾 Fully codified using Infrastructure as Code (IaC) best practices  
 
 ---
 
-## 📁 Project Structure
+## 🧰 Project Structure
 
 ```bash
 alb/
@@ -26,50 +28,47 @@ alb/
 ├── README.md               # Project documentation
 ```
 
+---
 
-✅ What This Project Does
+## ✅ Features
 
-- Creates a VPC, subnets, internet gateway, and routing
+- 🔁 Launches **EC2 instances via Launch Template**
+- 📊 Deploys **Auto Scaling Group** across multiple AZs
+- 🌐 Provisions **ALB** with:
+  - Port 80: HTTP → HTTPS redirect 🔁
+  - Port 443: Secure HTTPS using ACM certificate 🔐
+- 🔐 Uses **Security Groups** to control access
+- 🧠 Applies **Terraform best practices** for structure and scalability
 
-- Provisions a Launch Template for EC2 instances with user data
+---
 
-- Deploys an Auto Scaling Group across multiple AZs
+## 🔧 Prerequisites
 
-- Configures an ALB with:
+| Tool           | Requirement         |
+|----------------|----------------------|
+| 🧱 Terraform    | `>= 1.3`             |
+| ☁️ AWS CLI      | Configured with credentials |
+| 🧾 IAM Role     | Sufficient permissions to create resources |
+| 📜 ACM Cert     | Valid SSL certificate in the selected AWS region |
 
-  - Listener on port 80 to redirect to HTTPS (port 443)
+---
 
-  - Listener on port 443 with an ACM SSL certificate
+## 🚀 Getting Started
 
-- Automatically registers EC2 instances with the target group
+### 1️⃣ Clone the Repository
 
-- Uses security groups and best practices to control access
-
-
-
-🚀 Prerequisites
-Terraform >= 1.3
-
-- AWS CLI configured
-
-- AWS credentials with appropriate IAM permissions
-
-- An ACM SSL certificate in the region (e.g., us-east-1)
-
-
-
-⚙️ How to Use
-1. Clone the Repository
 ```bash
 git clone https://github.com/jamal-ehsanpour/terraform.git
 cd terraform/my-projects/alb
 ```
 
-2. Initialize Terraform
+2️⃣ Initialize Terraform
 ```bash
 terraform init
 ```
-3. Customize Variables
+
+
+3️⃣ Customize Variables
 Edit the terraform.tfvars file or pass variables via CLI:
 ```bash
 region        = "us-east-1"
@@ -77,10 +76,32 @@ key_name      = "your-ec2-keypair-name"
 certificate_arn = "arn:aws:acm:us-east-1:123456789012:certificate/abc123"
 ```
 
-4. Apply the Configuration
+
+4️⃣ Apply the Configuration
 ```bash
 terraform apply -auto-approve
 ```
+
+🌐 Output
+After deployment, Terraform will show:
+
+🔗 ALB DNS name → Visit your app securely using HTTPS
+
+🚫 HTTP traffic is automatically redirected
+
+
+📦 Best Practices Implemented
+| ✅ Practice                | Description                                     |
+| ------------------------- | ----------------------------------------------- |
+| 🔐 HTTPS Security         | Enforced encryption via ACM + ALB               |
+| 🎯 Least Privilege        | Scoped Security Group rules                     |
+| 📈 Scalable Infra         | Auto Scaling based on load                      |
+| ⚙️ Automated Provisioning | Bootstrapped EC2 with `userdata.sh`             |
+| 💾 Modular & Reusable     | Cleanly separated files for readability & reuse |
+
+
+
+
 
 
 🌐 Access the Web Server
@@ -90,19 +111,6 @@ Once provisioning is complete, Terraform will output:
 
 You can visit it in your browser using https:// — traffic on HTTP is automatically redirected.
 
-
-
-
-🔒 Best Practices Followed
-HTTPS redirection and encryption using ACM + ALB
-
-- Least privilege security group rules
-
-- Stateless and scalable infrastructure via Auto Scaling Group
-
-- Infrastructure codified and modularized for reuse
-
-- User data scripts for automated EC2 provisioning
 
 
 🧹 Cleanup
@@ -121,8 +129,22 @@ terraform destroy
 📬 Contact
 
 Made with ❤️ by Jamal Ehsanpour
+## 👤 Author
 
-If you found this project helpful, feel free to ⭐ the repo!
+Developed by [**Jamal Ehsanpour**](https://linkedin.com/in/jamal-ehsanpour-239563194)  
+📂 [GitHub Portfolio](https://github.com/jamal-ehsanpour)  
+🌍 [AWS Project Portfolio](http://my-portfolio-cicd.s3-website-eu-west-1.amazonaws.com/)
+
+
+If you found this project helpful:
+
+⭐ Star it on GitHub
+
+🍴 Fork it and make it your own
+
+📢 Share it with fellow DevOps & Cloud Engineers!
+
+
 
 
 
