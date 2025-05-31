@@ -12,3 +12,16 @@ variable "tags" {
     Environment = "Dev"
   }
 }
+
+
+variable "index_document" {
+  description = "The index document for the S3 website"
+  type        = string
+  default     = "index.html"
+}
+
+variable "error_document" {
+  description = "The error document for the S3 website"
+  type        = string
+  default     = "error.html"
+}
